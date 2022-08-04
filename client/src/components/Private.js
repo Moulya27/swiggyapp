@@ -1,15 +1,15 @@
-import React, { useState, useEffect } from "react";
-import PostService from "../services/post.service";
-import AuthService from "../services/auth.service";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import authService from "../services/auth.service";
+import postService from "../services/post.service";
 
-const Home = () => {
+function Private() {
   const [privatePosts, setPrivatePosts] = useState([]);
 
   const navigate = useNavigate();
 
   useEffect(() => {
-    PostService.getAllPrivatePosts().then(
+    postService.getAllPrivatePosts().then(
       (response) => {
         setPrivatePosts(response.data);
       },
@@ -17,7 +17,7 @@ const Home = () => {
         console.log("Private page", error.response);
         // Invalid token
         if (error.response && error.response.status === 403) {
-          AuthService.logout();
+          authService.logout();
           navigate("/login");
           window.location.reload();
         }
@@ -30,6 +30,6 @@ const Home = () => {
       <h3>{privatePosts.map((post) => post.content)}</h3>
     </div>
   );
-};
+}
 
-export default Home;
+export default Private;

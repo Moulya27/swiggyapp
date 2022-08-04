@@ -1,20 +1,26 @@
 import axios from "axios";
 
-const API_URL = "/auth";
+const API_URL = "http://localhost:3000/auth";
 
 const signup = (email, password) => {
+  try{
   return axios
     .post(API_URL + "/signup", {
       email,
       password,
     })
     .then((response) => {
+      console.log(response.data);
       if (response.data.accessToken) {
         localStorage.setItem("user", JSON.stringify(response.data));
       }
 
       return response.data;
     });
+  }
+  catch(error) {
+    return error;
+  }
 };
 
 const login = (email, password) => {
@@ -30,6 +36,7 @@ const login = (email, password) => {
 
       return response.data;
     });
+ 
 };
 
 const logout = () => {

@@ -1,19 +1,17 @@
 import axios from "axios";
 import authHeader from "./auth-header";
 
-const API_URL = "/posts";
+const API_URL = "http://localhost:3000/posts";
 
 const getAllPublicPosts = () => {
-  return axios.get(API_URL + "/public");
+  return axios.get(API_URL + "/public",{ headers: authHeader() });
 };
 
-const getAllPrivatePosts = () => {
-  return axios.get(API_URL + "/private", { headers: authHeader() });
-};
+
 
 const postService = {
   getAllPublicPosts,
-  getAllPrivatePosts,
+
 };
 
 export default postService;

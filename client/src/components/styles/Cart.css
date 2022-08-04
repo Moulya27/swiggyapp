@@ -1,0 +1,56 @@
+.mealImages{
+   width:50%;
+   border-radius: 10px;
+}
+
+.cartQty button{
+    padding: 0.7rem 1.5rem;
+    background: none;
+    border: none;
+    outline: none;
+  
+}
+
+.btnRemove{
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background: none;
+    color: gray;
+}
+
+.cartEmptyImage{
+    width: 50%;
+    opacity: 0.7;
+}
+.cartEmptyContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.backToHomeBtn{
+        border: none;
+        outline: none;
+        height: 50px;
+        width: 100%;
+        background-color: orange;
+        color: white;
+        border-radius: 4px;
+        font-weight: bold;
+        font-size: 16px;
+}
+
+.btnOrder{
+    margin-top: 5px;
+    background-color: orange;
+    color: white;
+}
+
+.btnOrder:hover{
+    border: none;
+    outline: none;
+    background-color: orange;
+    color: white;
+}
